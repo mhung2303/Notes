@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    171C26
+
+    <color name="colorPrimary">#171C26</color>
+    <color name="colorPrimaryDark">#10141C</color>
+    <color name="colorAccent">#4e33ff</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="LightBlack">#171C26</color>
+    <color name="DarkBlack">#10141C</color>
+    <color name="yellow">#ffd633</color>
+    <color name="blue">#4e33ff</color>
+    <color name="gray">#CACACA</color>
+
+</resources>
