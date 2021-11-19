@@ -12,5 +12,6 @@
     <color name="yellow">#ffd633</color>
     <color name="blue">#4e33ff</color>
     <color name="gray">#CACACA</color>
+    <color name="colorText">#606570</color>
 
 </resources>
