@@ -1,14 +1,17 @@
 package com.carter.takenotes.adapter
 
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.carter.takenotes.R
 import com.carter.takenotes.entities.Notes
 import kotlinx.android.synthetic.main.item_rv_notes.view.*
 
-class NotesAdapter(val arrayList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>()
+class NotesAdapter(private val arrList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>()
 {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
@@ -17,17 +20,33 @@ class NotesAdapter(val arrayList: List<Notes>) : RecyclerView.Adapter<NotesAdapt
         )
     }
 
-    override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        holder.itemView.tvTitle.text = arrayList[position].title
-        holder.itemView.tvDesc.text = arrayList[position].noteText
-        holder.itemView.tvDateTime.text = arrayList[position].dateTime
+    override fun onBindViewHolder(holder: NotesViewHolder, position: Int)
+    {
+        holder.itemView.tvTitle.text = arrList[position].title
+        holder.itemView.tvDesc.text = arrList[position].noteText
+        holder.itemView.tvDateTime.text = arrList[position].dateTime
+
+        if(arrList[position].color != null)
+        {
+            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(arrList[position].color))
+        }
+
+        if(arrList[position].imgPath != null)
+        {
+            holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(arrList[position].imgPath))
+            holder.itemView.imgNote.visibility = View.VISIBLE
+        }
+        else
+        {
+            holder.itemView.imgNote.visibility = View.GONE
+        }
+
     }
 
     override fun getItemCount(): Int {
-        return arrayList.size
+        return arrList.size
     }
 
-    class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
-    }
 }

@@ -55,6 +55,8 @@ class HomeFragment : BaseFragment() {
             }
         }
 
+
+        // Click create Note
         fabBtnCreateNote.setOnClickListener {
             replaceFragment(CreateNoteFragment.newInstance(),false)
         }
