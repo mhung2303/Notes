@@ -4,8 +4,13 @@
     <string name="notes_title">Notes Title</string>
     <string name="notes_sub_title">Notes Sub Title</string>
     <string name="notes_description">Enter Note Here</string>
+    <string name="web_url">Enter Web Url</string>
+    <string name="Ok">OK</string>
+    <string name="Cancel">Cancel</string>
     <string name="storage_permission_text">This app needs access to your storage.</string>
     <string name="search">Search your notes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_web_link">Add Web Link</string>
 </resources>

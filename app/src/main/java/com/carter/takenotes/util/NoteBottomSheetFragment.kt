@@ -195,6 +195,12 @@ class NoteBottomSheetFragment : BottomSheetDialogFragment()
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
         }
 
+        layoutWebUrl.setOnClickListener {
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action","WebUrl")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+        }
+
     }
 
 
