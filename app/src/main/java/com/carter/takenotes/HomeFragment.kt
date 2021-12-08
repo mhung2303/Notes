@@ -1,5 +1,6 @@
 package com.carter.takenotes
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -75,8 +76,9 @@ class HomeFragment : BaseFragment() {
                 return true
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun onQueryTextChange(newText: String?): Boolean {
-                var tempArr = ArrayList<Notes>()
+                val tempArr = ArrayList<Notes>()
                 for(arr in arrNotes)
                 {
                     if(arr.title!!.lowercase(Locale.getDefault()).contains(newText.toString())){
