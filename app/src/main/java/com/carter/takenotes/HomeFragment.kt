@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.carter.takenotes.adapter.NotesAdapter
 import com.carter.takenotes.database.NotesDatabase
 import com.carter.takenotes.entities.Notes
+import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import java.util.*
@@ -21,13 +22,17 @@ class HomeFragment : BaseFragment() {
 
     var arrNotes = ArrayList<Notes>()
     private val notesAdapter: NotesAdapter = NotesAdapter()
+    private lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
+
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,7 +98,40 @@ class HomeFragment : BaseFragment() {
 
         })
 
+        loadBannerAd()
+    }
 
+    private fun loadBannerAd()
+    {
+        MobileAds.initialize(requireContext()) {}
+
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        mAdView.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                // Code to be executed when an ad request fails.
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        }
     }
 
     private val onClicked = object : NotesAdapter.OnItemClickListener{
